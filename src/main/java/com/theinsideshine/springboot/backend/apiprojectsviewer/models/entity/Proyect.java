@@ -24,7 +24,7 @@ public class Proyect implements Serializable{
 	private String name;
 
 	private String intention;
-	private String channel;
+	
 	
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
@@ -57,14 +57,7 @@ public class Proyect implements Serializable{
 		this.intention = intention;
 	}
 
-	public String getChannel() {
-		return channel;
-	}
-
-	public void setChannel(String channel) {
-		this.channel = channel;
-	}
-
+	
 	public Date getCreateAt() {
 		return createAt;
 	}
