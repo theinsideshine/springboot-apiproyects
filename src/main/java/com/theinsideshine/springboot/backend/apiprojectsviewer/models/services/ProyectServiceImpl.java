@@ -22,4 +22,25 @@ public class ProyectServiceImpl implements IProyectService{
 		return (List<Proyect>) proyectDao.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly= true)
+	public Proyect findbyId(Long Id) {
+		
+		return proyectDao.findById(Id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Proyect save(Proyect proyect) {
+		// TODO Auto-generated method stub
+		return proyectDao.save(proyect);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		proyectDao.deleteById(id);
+		
+	}
+
 }
