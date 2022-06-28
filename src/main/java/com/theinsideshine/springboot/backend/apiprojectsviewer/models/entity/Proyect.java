@@ -32,17 +32,7 @@ public class Proyect implements Serializable{
 	private String name;
 
     @NotEmpty(message ="no puede estar vacio")
-    private String intention;
-	
-	
-	@Column(name="create_at")
-	@Temporal(TemporalType.DATE)
-	private Date createAt;
-	
-	@PrePersist
-	public void prePersist() {
-	createAt= new Date();
-	}
+    private String intention;	
 	
 	@NotEmpty(message ="no puede estar vacio")
 	private String technology;
@@ -51,6 +41,17 @@ public class Proyect implements Serializable{
 	@Email(message="no es una dirección de correo bien formada")
 	@Column(nullable=false)
 	private String email;
+	
+	@PrePersist
+	public void prePersist() {
+	createAt= new Date();
+	}
+	
+	@Column(name="create_at")
+	@Temporal(TemporalType.DATE)
+	private Date createAt;
+	
+	
 
 	public Long getId() {
 		return id;

@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.services.IProyectService;
@@ -40,6 +43,13 @@ public class ProyectRestController {
 	public List<Proyect> index(){
 		return proyectService.findAll();
 	}
+	
+	@GetMapping("/proyects/page/{page}")
+	public Page<Proyect> index(@PathVariable Integer page) {
+		Pageable pageable = PageRequest.of(page, 4);
+		return proyectService.findAll(pageable);
+	}
+	
 	
 	@GetMapping("/proyects/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
