@@ -12,6 +12,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table( name="proyects")
@@ -22,9 +25,14 @@ public class Proyect implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
+    	
+    @NotEmpty(message ="no puede estar vacio")
+    @Size(min=4, max=30, message="el tamaño tiene que estar entre 4 y 30")
+    @Column(nullable=false, unique=true)
 	private String name;
 
-	private String intention;
+    @NotEmpty(message ="no puede estar vacio")
+    private String intention;
 	
 	
 	@Column(name="create_at")
@@ -36,8 +44,12 @@ public class Proyect implements Serializable{
 	createAt= new Date();
 	}
 	
-	
+	@NotEmpty(message ="no puede estar vacio")
 	private String technology;
+	
+	@NotEmpty(message ="no puede estar vacio")
+	@Email(message="no es una dirección de correo bien formada")
+	@Column(nullable=false)
 	private String email;
 
 	public Long getId() {
