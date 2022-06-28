@@ -8,12 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -32,6 +32,7 @@ public class Proyect implements Serializable{
 	private String name;
 
     @NotEmpty(message ="no puede estar vacio")
+    @Size(min=4, max=50, message="el tamaño tiene que estar entre 4 y 50")
     private String intention;	
 	
 	@NotEmpty(message ="no puede estar vacio")
@@ -42,16 +43,14 @@ public class Proyect implements Serializable{
 	@Column(nullable=false)
 	private String email;
 	
-	@PrePersist
-	public void prePersist() {
-	createAt= new Date();
-	}
 	
+	@NotNull(message= " no puede estar vacio")
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
 	
 	
+	private String image;
 
 	public Long getId() {
 		return id;
@@ -103,6 +102,17 @@ public class Proyect implements Serializable{
 	}
 	
 	
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
+
 	private static final long serialVersionUID = 1L;
 
 }
