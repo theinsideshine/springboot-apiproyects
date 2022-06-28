@@ -45,6 +45,7 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.services.IProyectService;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.services.IUploadFileService;
 
@@ -155,6 +156,7 @@ public class ProyectRestController {
 			proyectCurrent.setTechnology(proyect.getTechnology());
 			proyectCurrent.setEmail(proyect.getEmail());
 			proyectCurrent.setCreateAt(proyect.getCreateAt());
+			proyectCurrent.setRegion(proyect.getRegion());
 
 			proyectUpdated = proyectService.save(proyectCurrent);
 
@@ -243,6 +245,11 @@ public class ProyectRestController {
 		header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"");
 
 		return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
+	}
+	
+	@GetMapping("/proyects/regions")
+	public List<Region> listRegions(){
+		return proyectService.findAllRegions();
 	}
 
 }

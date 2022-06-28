@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IProyectDao;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
 
 @Service
 public class ProyectServiceImpl implements IProyectService{
@@ -49,6 +50,12 @@ public class ProyectServiceImpl implements IProyectService{
 	public void delete(Long id) {
 		proyectDao.deleteById(id);
 		
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Region> findAllRegions() {
+		return proyectDao.findAllRegions();
 	}
 
 	
