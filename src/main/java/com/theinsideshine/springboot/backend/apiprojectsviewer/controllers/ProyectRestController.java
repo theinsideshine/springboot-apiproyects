@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -73,6 +74,7 @@ public class ProyectRestController {
 		return proyectService.findAll(pageable);
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@GetMapping("/proyects/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
@@ -95,6 +97,7 @@ public class ProyectRestController {
 		return new ResponseEntity<Proyect>(proyect, HttpStatus.OK);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/proyects")
 	public ResponseEntity<?> create(@Valid @RequestBody Proyect proyect, BindingResult result) {
 
@@ -124,6 +127,7 @@ public class ProyectRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@PutMapping("/proyects/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Proyect proyect, BindingResult result, @PathVariable Long id) {
 
@@ -172,6 +176,7 @@ public class ProyectRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@PostMapping("/proyects/upload")
 	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file, @RequestParam("id") Long id) {
 		Map<String, Object> response = new HashMap<>();
@@ -205,6 +210,7 @@ public class ProyectRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping("/proyects/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 
@@ -247,6 +253,7 @@ public class ProyectRestController {
 		return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/proyects/regions")
 	public List<Region> listRegions(){
 		return proyectService.findAllRegions();

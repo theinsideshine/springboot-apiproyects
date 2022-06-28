@@ -21,3 +21,15 @@ INSERT INTO proyects (region_id, name, intention,  create_at, technology, email 
 INSERT INTO proyects (region_id, name, intention,  create_at, technology, email ) VALUES(8,'Software y App', 'Uso de lenguajes python, java, Js(react, Vue)',  '2022-3-22','Programacion','educacion.ta@gmail.com');
 INSERT INTO proyects (region_id, name, intention,  create_at, technology, email ) VALUES(1,'Viga simplemente apoyada', 'Proyecto final universitario',  '2021-11-13','Integrador','educacion.ta@gmail.com');
 INSERT INTO proyects (region_id, name, intention,  create_at, technology, email ) VALUES(1,'Remote Lab Lib', 'Practica profesional supervisada universitaria',  '2022-4-3','Electronica-Software','educacion.ta@gmail.com');
+
+
+/* Creamos algunos usuarios con sus roles */
+INSERT INTO `usuarios` (username, password, enabled, nombre, apellido, email) VALUES ('andres','$2a$10$C3Uln5uqnzx/GswADURJGOIdBqYrly9731fnwKDaUdBkt/M3qvtLq',1, 'Andres', 'Guzman','profesor@bolsadeideas.com');
+INSERT INTO `usuarios` (username, password, enabled, nombre, apellido, email) VALUES ('admin','$2a$10$RmdEsvEfhI7Rcm9f/uZXPebZVCcPC7ZXZwV51efAvMAp1rIaRAfPK',1, 'John', 'Doe','jhon.doe@bolsadeideas.com');
+
+INSERT INTO `roles` (nombre) VALUES ('ROLE_USER');
+INSERT INTO `roles` (nombre) VALUES ('ROLE_ADMIN');
+
+INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (1, 1);
+INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 2);
+INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 1);
