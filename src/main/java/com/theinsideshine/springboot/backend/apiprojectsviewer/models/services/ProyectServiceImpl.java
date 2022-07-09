@@ -8,8 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IProductDao;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IProyectDao;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IVideoDao;
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Product;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Video;
@@ -22,6 +24,9 @@ public class ProyectServiceImpl implements IProyectService{
 	
 	@Autowired
 	private IVideoDao videoDao;
+	
+	@Autowired
+	private IProductDao productDao;
 	
 	@Override
 	@Transactional(readOnly= true)
@@ -79,6 +84,13 @@ public class ProyectServiceImpl implements IProyectService{
 	public void deleteVideoById(Long id) {
 		videoDao.deleteById(id);
 		
+	}
+
+	
+	@Transactional(readOnly = true)
+	@Override
+	public List<Product> findProductByName(String term) {
+		return productDao.findByNameContainingIgnoreCase(term);
 	}
 
 	

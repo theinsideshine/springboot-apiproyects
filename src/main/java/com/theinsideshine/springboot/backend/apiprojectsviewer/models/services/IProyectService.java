@@ -2,6 +2,7 @@ package com.theinsideshine.springboot.backend.apiprojectsviewer.models.services;
 
 import java.util.List;
 
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Product;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Video;
@@ -29,6 +30,7 @@ public interface IProyectService {
 	
 	public void deleteVideoById(Long id);
     
+	public List<Product> findProductByName(String term);
     
 
 }

@@ -74,7 +74,7 @@ public class ProyectRestController {
 		return proyectService.findAll(pageable);
 	}
 
-	//@Secured({"ROLE_ADMIN", "ROLE_USER"})
+	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@GetMapping("/proyects/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
