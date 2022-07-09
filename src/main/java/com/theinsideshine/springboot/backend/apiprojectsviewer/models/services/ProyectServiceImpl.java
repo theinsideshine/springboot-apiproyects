@@ -9,14 +9,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IProyectDao;
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.dao.IVideoDao;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
+import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Video;
 
 @Service
 public class ProyectServiceImpl implements IProyectService{
 
 	@Autowired
 	private IProyectDao proyectDao;
+	
+	@Autowired
+	private IVideoDao videoDao;
 	
 	@Override
 	@Transactional(readOnly= true)
@@ -56,6 +61,24 @@ public class ProyectServiceImpl implements IProyectService{
 	@Transactional(readOnly = true)
 	public List<Region> findAllRegions() {
 		return proyectDao.findAllRegions();
+	}
+
+	@Override
+	public Video findVideoById(Long id) {
+		return videoDao.findById(id).orElse(null);
+	}
+		
+
+	@Override
+	public Video saveVideo(Video video) {
+		return videoDao.save(video);
+		
+	}
+
+	@Override
+	public void deleteVideoById(Long id) {
+		videoDao.deleteById(id);
+		
 	}
 
 	

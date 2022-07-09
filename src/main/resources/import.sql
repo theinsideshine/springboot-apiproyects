@@ -33,3 +33,35 @@ INSERT INTO `roles` (nombre) VALUES ('ROLE_ADMIN');
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (1, 1);
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 2);
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 1);
+
+/* Populate tabla productos */
+INSERT INTO products (name, price, create_at) VALUES('Panasonic Pantalla LCD', 259990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Sony Camara digital DSC-W320B', 123490, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Apple iPod shuffle', 1499990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Sony Notebook Z110', 37990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Hewlett Packard Multifuncional F2280', 69990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Bianchi Bicicleta Aro 26', 69990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Mica Comoda 5 Cajones', 299990, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Filamento 3d Grillon', 2132, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Arduino micro pro', 1957, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Ender 3 pro', 60000, NOW());
+INSERT INTO products (name, price, create_at) VALUES('Calculadora cientifica', 4000, NOW());
+
+
+
+/* Creamos algunos videos */
+INSERT INTO videos (description,observation, video_url,proyect_id, create_at) VALUES('Primera prueba de concepto, actuadores', null,'HFA5eG5oFfI', 1, NOW());
+INSERT INTO videos (description,observation, video_url,proyect_id, create_at) VALUES('Factor de forma', null,'6TN32ScyAdM', 1, NOW());
+INSERT INTO videos (description,observation, video_url,proyect_id, create_at) VALUES('Espada laser manual simple', null,'gCHAfXRa3KY', 1, NOW());
+
+INSERT INTO videos_items (quantity, video_id, product_id) VALUES(1, 1, 8);
+INSERT INTO videos_items (quantity, video_id, product_id) VALUES(2, 2, 9);
+INSERT INTO videos_items (quantity, video_id, product_id) VALUES(1, 3, 10);
+
+
+INSERT INTO videos (description,observation, video_url, proyect_id, create_at) VALUES('Funciones Lineales primera parte', null,'7yoWHXHcRhE', 2, NOW());
+INSERT INTO videos (description,observation, video_url, proyect_id, create_at) VALUES('Funciones Lineales segunda parte', null,'A43oZ4I5HF0', 2, NOW());
+
+INSERT INTO videos_items (quantity, video_id, product_id) VALUES(1, 4, 11);
+INSERT INTO videos_items (quantity, video_id, product_id) VALUES(1, 5, 11);
+
