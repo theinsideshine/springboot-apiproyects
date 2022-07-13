@@ -1,12 +1,10 @@
 # SpringBoot-apiproyects
 
 La intención del proyecto es familiarizarse con el uso de SpringBoot , SpringSecurity
-, Spring data jpa, y angular
+, Spring data jpa, y angular y boorstrap
 
 
-[Intencion del proyecto](https://youtu.be/-bFDZmKrt8A)
-
-[demo de uso-EN CONSTRUCCION](https://youtu.be/-bFDZmKrt8A)
+[demo de uso](https://youtu.be/TfWqM0VwJNs)
 
 Lista principal de proyectos
 ![](images/list-proyects.png)
