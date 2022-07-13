@@ -1,15 +1,11 @@
 package com.theinsideshine.springboot.backend.apiprojectsviewer.controllers;
 
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import javax.validation.Valid;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -25,25 +21,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
-
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import java.util.UUID;
 
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Proyect;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Region;
@@ -61,7 +47,7 @@ public class ProyectRestController {
 	@Autowired
 	private IUploadFileService uploadService;
 
-	private final Logger log = LoggerFactory.getLogger(ProyectRestController.class);
+	//private final Logger log = LoggerFactory.getLogger(ProyectRestController.class);
 
 	@GetMapping("/proyects")
 	public List<Proyect> index() {

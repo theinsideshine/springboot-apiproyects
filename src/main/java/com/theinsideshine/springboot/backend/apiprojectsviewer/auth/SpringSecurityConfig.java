@@ -14,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @EnableGlobalMethodSecurity(securedEnabled=true)
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -22,12 +23,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService usuarioService;
 	
 	@Bean
-	public static BCryptPasswordEncoder passwordEncoder() {
+	static BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Override
-	@Autowired
+	@Override	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(this.usuarioService).passwordEncoder(passwordEncoder());
 	}
