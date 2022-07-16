@@ -19,7 +19,7 @@ import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Pro
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.entity.Video;
 import com.theinsideshine.springboot.backend.apiprojectsviewer.models.services.IProyectService;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = { "http://localhost:4200","https://proyect-app-angular-46890.web.app"})
 @RestController
 @RequestMapping("/api")
 public class VideoRestController {
